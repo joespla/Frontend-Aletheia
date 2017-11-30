@@ -1,0 +1,24 @@
+<h1>Bloques</h1>
+<hr>
+
+<div class="card-columns">
+
+  <div class="card animated fadeIn fast" *ngFor="let permiso of permisos; let i = index">
+    <img class="card-img-top" [src]="permiso.img" [alt]="permiso.nombre">
+    <div class="card-body">
+      <hr>
+      <h4 class="card-title">{{permiso.nombre}}</h4>
+      <p class="card-text">Bloques: {{permiso.descripcion}}</p>
+      <p class="card-text">Fecha inicio: <small class="text-muted">{{permiso.fecha}}</small></p>
+      <p class="card-text">Fecha vencimiento: <small class="text-muted">{{permiso.vence}}</small></p>
+      <p class="card-text">Status: <small class="text-muted">{{permiso.status}}</small></p>
+
+      <button (click)="verPermiso(i)"
+      type="button" class="btn btn-outline-primary btn-block">
+        Editar...
+      </button>
+
+    </div>
+  </div>
+
+</div>

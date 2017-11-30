@@ -1,0 +1,110 @@
+<hr>
+<h1>
+  <u>Datos generales</u>
+</h1>
+<div class="container">
+
+  <div class="row">
+      <div class="col-md-6">
+        <h4>Nombre:</h4>
+      </div>
+      <div class="col-md-6">
+        <div *ngFor="let usuario of usuarios">
+          <h4><small>{{usuario.nombre}}</small></h4>
+        </div>
+        <!-- <h4><small>{{nombre}}</small></h4> -->
+        <br>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-6">
+        <h4>Dirección:</h4>
+      </div>
+      <div class="col-md-6">
+        <div *ngFor="let usuario of usuarios">
+          <h4><small>{{usuario.direccion.calle}} {{usuario.direccion.numeroExterior}} {{usuario.direccion.cp}} {{usuario.direccion.pais}}</small></h4>
+        </div>
+        <br>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Curp:</h4>
+    </div>
+    <div class="col-md-6">
+      <div *ngFor="let usuario of usuarios">
+        <h4><small>{{usuario.curp}}</small></h4>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h4>E-mail:</h4>
+    </div>
+    <div class="col-md-6">
+      <div *ngFor="let usuario of usuarios">
+        <h4><small>{{usuario.email}}</small></h4>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-6">
+        <h4>Fecha de nacimiento:</h4>
+      </div>
+      <div class="col-md-6">
+        <div *ngFor="let usuario of usuarios">
+          <h4><small>{{usuario.fechaNacimiento}}</small></h4>
+        </div>
+        <br>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-6">
+        <h4>Telefono:</h4>
+      </div>
+      <div class="col-md-6">
+        <div *ngFor="let usuario of usuarios">
+          <h4><small>{{usuario.telefono}}</small></h4>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+<br>
+
+<h1><u>Datos agregados</u></h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Tarjeta de credito:</h4>
+      <br>
+    </div>
+    <div class="col-md-6">
+      <div *ngFor="let usuario of usuarios">
+        <h4><small>{{usuario.agregados.tarjetaCredito}}</small></h4>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Tarjeta Club Cinepolis:</h4>
+      <br>
+    </div>
+    <div class="col-md-6">
+      <div *ngFor="let usuario of usuarios">
+        <h4><small>{{usuario.agregados.tarjetaClubCinepolis}}</small></h4>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+
+<div class="container">
+
+  <h1 row class="animated fadeIn">{{ permiso.nombre | uppercase}}</h1>
+
+  <hr>
+
+  <div class="row animated fadeIn">
+    <div class="col-md-4">
+      <img [src]="permiso.img" class="img-fluid" [alt]="permiso.nombre">
+      <br>
+      <br>
+      <button (click) = "ejecutar()"
+        class="btn btn-primary"
+        type="button" name="button"
+        [disabled]="loading">
+
+        <i [ngClass]="{ 'fa-save': !loading, 'fa-refresh fa-spin':loading }"
+        class="fa"></i>
+        <span *ngIf="!loading">Guardar cambios</span>
+        <span *ngIf="loading">Espere por favor</span>
+      </button>
+      <br><br>
+      <a [routerLink]="['/administrados']" class="btn btn-danger btn block">Regresar</a>
+      <br>
+      <br>
+    </div>
+
+    <div class="col-md-8">
+    <h3>{{ permiso.nombre }}</h3>
+    <hr>
+    <p>Fecha de inicio: {{permiso.fecha}}</p>
+    <p>Fecha de vencimiento: {{permiso.vence}}</p>
+    <p>Bloques: {{permiso.descripcion}}</p>
+    <p>Status: {{permiso.status}}</p>
+    <h1>Datos generales:</h1>
+
+    <div *ngFor="let usuario of usuarios">
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" checked>
+          Nombre: {{usuario.nombre}}
+        </label>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Direccion: {{usuario.direccion.calle}} {{usuario.direccion.numeroExterior}} {{usuario.direccion.cp}} {{usuario.direccion.pais}}
+        </label>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Curp: {{usuario.curp}}
+        </label>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          E-mail: {{usuario.email}}
+        </label>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Fecha nacimiento: {{usuario.fechaNacimiento}}
+        </label>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Telefono: {{usuario.telefono}}
+        </label>
+      </div>
+    </div>
+
+    <div id="boton">
+      <a [routerLink]="['/administrados']" class="btn btn-danger btn block">Eliminar</a>
+    </div>
+
+  </div>
+
+  </div>
+
+</div>

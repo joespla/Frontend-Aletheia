@@ -1,0 +1,124 @@
+<h1>Aceptar bloque</h1>
+
+<hr>
+
+<div class="form-group col-md-4">
+      <h4>Bloques:</h4>
+      <select class="form-control">
+        <option selected>Salud</option>
+        <option selected>Finanzas</option>
+        <option selected>Educativo</option>
+      </select>
+</div>
+<hr>
+
+<div class="col-md-4">
+    <h4>Fecha vencimiento:</h4>
+    <select>
+      <option selected *ngFor="let dia of dias">{{dia}}</option>
+    </select>
+
+    <select>
+      <option selected *ngFor="let mes of meses">{{mes}}</option>
+    </select>
+
+    <select>
+      <option selected *ngFor="let year of years">{{year}}</option>
+    </select>
+
+
+</div>
+<hr>
+
+<div class="col-md-12" *ngFor="let usuario of usuarios">
+  <h4>Datos personales</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" checked>
+          Nombre: {{usuario.nombre}}
+        </label>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Direccion: {{usuario.direccion.calle}} {{usuario.direccion.numeroExterior}} {{usuario.direccion.cp}} {{usuario.direccion.pais}}
+        </label>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Curp: {{usuario.curp}}
+        </label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+          E-mail: {{usuario.email}}
+        </label>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+          Fecha nacimiento: {{usuario.fechaNacimiento}}
+        </label>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+          Telefono: {{usuario.telefono}}
+        </label>
+    </div>
+  </div>
+  </div>
+
+</div>
+<hr>
+
+<div class="col-md-12">
+  <h4>Agregar datos</h4>
+
+  <button class="btn btn-primary" (click)="crearCampos()">
+      <i [ngClass]="{'fa-pencil': campos, 'fa-plus': !campos}"
+      class="fa"></i>
+  </button>
+  <span *ngIf="!campos"></span>
+  <span *ngIf="campos">
+    <br><br>
+    <div class="row">
+
+      <div class="col-md-6">
+        <input class="form-control" type="text" placeholder="Atributo">
+      </div>
+
+      <div class="col-md-6">
+        <input class="form-control" type="text" placeholder="Valor">
+      </div>
+
+    </div>
+  </span>
+</div>
+<hr>
+
+<div class="col-md-12">
+  <button (click) = "ejecutar()"
+  class="btn btn-primary"
+  type="button" name="button"
+  [disabled]="loading">
+
+  <i [ngClass]="{ 'fa-save': !loading, 'fa-refresh fa-spin':loading }"
+  class="fa"></i>
+  <span *ngIf="!loading">Guardar cambios</span>
+  <span *ngIf="loading">Espere por favor</span>
+</button>
+<a [routerLink]="['/administrados']" class="btn btn-danger btn block">Cancelar</a>
+</div>
+<br>
